@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Хранители неба — защита проекта</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/slides.css">
+</head>
+<body>
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="ic-gather" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5"/><path d="M12 12.2V21"/></symbol>
+    <symbol id="ic-assemble" viewBox="0 0 24 24"><path d="M4 9.2V5.2h4a2 2 0 1 1 4 0h4v4a2 2 0 1 1 0 4v4.6h-4.6a2 2 0 1 0-4 0H4v-4a2 2 0 1 0 0-4z"/></symbol>
+    <symbol id="ic-spider" viewBox="0 0 24 24"><ellipse cx="12" cy="13.6" rx="3.1" ry="3.9"/><circle cx="12" cy="8.7" r="1.9"/><path d="M9.2 11.6 5 9.3 2.7 11M9 14 4 14.4 2 16.6M14.8 11.6 19 9.3 21.3 11M15 14l5 .4 2 2.2M10.3 16.8 8.6 20M13.7 16.8l1.7 3.2"/></symbol>
+    <symbol id="ic-source" viewBox="0 0 24 24"><path d="M6 4h12l3 5-9 11L3 9z"/><path d="M3 9h18M9 4 6 9l6 11 6-11-3-5"/></symbol>
+    <symbol id="ic-revive" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.4"/><path d="M12 8.2v7.6M8.2 12h7.6"/></symbol>
+    <symbol id="ic-kick" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M12 2.7v3.3M12 18v3.3M2.7 12H6M18 12h3.3M5.2 5.2l2.4 2.4M16.4 16.4l2.4 2.4M18.8 5.2l-2.4 2.4M7.6 16.4l-2.4 2.4"/></symbol>
+    <symbol id="ic-drink" viewBox="0 0 24 24"><path d="M9.6 2.7h4.8M10 2.7v4l-1.6 3.1V20a1.6 1.6 0 0 0 1.6 1.6h4A1.6 1.6 0 0 0 15.6 20V9.8L14 6.7v-4"/><path d="M8.5 13.5h7"/></symbol>
+  </svg>
+
+  <div class="viewport">
+    <div class="stage">
+      <div class="layer layer--sky"></div>
+      <div class="layer layer--seigaiha"></div>
+      <div class="layer layer--grain"></div>
+      <canvas id="petals"></canvas>
+
+      <div class="progress"><div class="progress__bar"></div></div>
+
+      <div class="deck">
+
+        <section class="slide" id="cover">
+          <div class="enso" style="width:820px;height:820px;left:1120px;top:130px;"></div>
+          <div class="cover">
+            <div class="cover__text">
+              <div class="kicker" data-anim="up" style="--delay:.1s">Кооперативный survival · Unity 6 · FishNet</div>
+              <h1 class="cover__title" data-anim="ink" style="--delay:.22s">Хранители<br>неба</h1>
+              <p class="cover__tag" data-anim="up" style="--delay:.5s">Кооператив на&nbsp;двоих от&nbsp;первого лица: собрать орудие из&nbsp;деталей и&nbsp;уничтожить Источник, отбиваясь от&nbsp;пауков.</p>
+              <div class="cover__meta" data-anim="up" style="--delay:.66s">
+                <span><b>Данилов Михаил</b> · <b>Самсонова Ольга</b></span>
+                <span class="muted">БСБО-09-23 · 2026</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="slide" id="concept">
+          <div class="concept">
+            <div class="concept__copy">
+              <div class="kicker" data-anim="up">Об игре</div>
+              <h2 class="concept__head" data-anim="ink" style="--delay:.16s">Кооперативный survival от&nbsp;первого лица</h2>
+              <p class="body" data-anim="up" style="--delay:.42s">Двое игроков на&nbsp;японской локации собирают орудие из&nbsp;найденных деталей, заряжают его и&nbsp;уничтожают <span class="em">Источник</span>. Параллельно отбиваются от&nbsp;процедурных пауков: те&nbsp;лезут волнами и&nbsp;могут обездвижить игрока.</p>
+            </div>
+            <div class="concept__hero" data-anim="scale" style="--delay:.3s">
+              <div class="shot" data-shot="03-world">
+                <div class="shot__ph">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5L5 19"/></svg>
+                  <div class="hint">Атмосферный кадр локации</div>
+                  <div class="name">03-world.jpg</div>
+                </div>
+                <div class="shot__frame"></div>
+                <div class="shot__cap">Локация</div>
+              </div>
+            </div>
+          </div>        </section>
+
+        <section class="slide tag-accent--leaf" id="loop">
+          <header class="head">
+            <div class="kicker" data-anim="up">Игровая петля</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Один заход — четыре фазы</h2>
+          </header>
+          <div class="flow">
+            <article class="step" data-anim="up" style="--delay:.18s">
+              <div class="step__no">01</div>
+              <div class="step__ic" style="color:var(--leaf-deep)"><svg class="ic"><use href="#ic-gather"/></svg></div>
+              <h3 class="step__title">Сбор</h3>
+              <p class="step__desc">Ищем и&nbsp;переносим детали орудия по&nbsp;локации.</p>
+            </article>
+            <div class="flow__arrow" data-anim="fade" style="--delay:.3s">→</div>
+            <article class="step" data-anim="up" style="--delay:.36s">
+              <div class="step__no">02</div>
+              <div class="step__ic" style="color:var(--gold-deep)"><svg class="ic"><use href="#ic-assemble"/></svg></div>
+              <h3 class="step__title">Сборка орудия</h3>
+              <p class="step__desc">Вставляем модули в&nbsp;сокеты — одно орудие на&nbsp;двоих.</p>
+            </article>
+            <div class="flow__arrow" data-anim="fade" style="--delay:.48s">→</div>
+            <article class="step" data-anim="up" style="--delay:.54s">
+              <div class="step__no">03</div>
+              <div class="step__ic" style="color:var(--spider)"><svg class="ic"><use href="#ic-spider"/></svg></div>
+              <h3 class="step__title">Волна</h3>
+              <p class="step__desc">Источник раскрывается и&nbsp;начинает плодить пауков.</p>
+            </article>
+            <div class="flow__arrow" data-anim="fade" style="--delay:.66s">→</div>
+            <article class="step step--final" data-anim="up" style="--delay:.72s">
+              <div class="step__no">04</div>
+              <div class="step__ic" style="color:var(--vermilion)"><svg class="ic"><use href="#ic-source"/></svg></div>
+              <h3 class="step__title">Источник</h3>
+              <p class="step__desc">Заряженный выстрел уничтожает Источник — победа.</p>
+            </article>
+          </div>        </section>
+
+        <section class="slide tag-accent--water" id="carry">
+          <header class="head">
+            <div class="kicker" data-anim="up">Механика · орудие</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Перенос и&nbsp;сборка орудия</h2>
+          </header>
+          <ul class="feats feats--2col">
+            <li data-anim="up" style="--delay:.2s"><b>Физический перенос.</b> Подними деталь, неси её, можно бросить — настоящая физика.</li>
+            <li data-anim="up" style="--delay:.3s"><b>Сборка в&nbsp;сокеты.</b> Детали вставляются по&nbsp;порядку — орудие собирается из&nbsp;частей.</li>
+            <li data-anim="up" style="--delay:.4s"><b>Одно орудие на&nbsp;двоих.</b> Общий проект — роли делятся по&nbsp;ходу.</li>
+            <li data-anim="up" style="--delay:.5s"><b>Пауки отрывают модули.</b> Оторванное нужно подбирать и&nbsp;вставлять обратно.</li>
+          </ul>        </section>
+
+        <section class="slide tag-accent--vermilion" id="enemies">
+          <header class="head">
+            <div class="kicker" data-anim="up">Механика · враги</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Враги — процедурные пауки</h2>
+          </header>
+          <div class="split">
+            <div class="split__copy">
+              <ul class="feats">
+                <li data-anim="up" style="--delay:.2s"><b>Процедурная анимация.</b> Ноги просчитываются отдельно — походка живая, не зацикленная.</li>
+                <li data-anim="up" style="--delay:.32s"><b>Движение по&nbsp;поверхностям.</b> Ползут по&nbsp;стенам и&nbsp;зданиям, без NavMesh.</li>
+                <li data-anim="up" style="--delay:.44s"><b>Атака.</b> Прыжок, присасывание к&nbsp;игроку, обездвиживание.</li>
+                <li data-anim="up" style="--delay:.56s"><b>Захват тела.</b> Ноги цепляются за&nbsp;кости персонажа и&nbsp;следуют за&nbsp;ними.</li>
+              </ul>
+              <div class="minihints" data-anim="up" style="--delay:.66s">Цель пауков — орудие; игрок на&nbsp;пути попадает под атаку.</div>
+            </div>
+            <div class="split__media" data-anim="scale" style="--delay:.3s">
+              <div class="shot" data-shot="07-spider">
+                <div class="shot__ph"><div class="hint">Паук вблизи</div><div class="name">07-spider.jpg</div></div>
+                <div class="shot__frame"></div>
+                <div class="shot__cap">Процедурный паук</div>
+              </div>
+            </div>
+          </div>        </section>
+
+        <section class="slide tag-accent--sakura" id="more">
+          <header class="head">
+            <div class="kicker" data-anim="up">Ещё механики</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Другие механики</h2>
+          </header>
+          <div class="grid3">
+            <article class="mcard" data-anim="up" style="--delay:.2s">
+              <div class="mcard__ic" style="color:var(--leaf-deep)"><svg class="ic"><use href="#ic-revive"/></svg></div>
+              <h3 class="mcard__t">Спасение</h3>
+              <p class="mcard__d">Убейте присосавшегося паука — и&nbsp;поднимете напарника.</p>
+            </article>
+            <article class="mcard" data-anim="up" style="--delay:.32s">
+              <div class="mcard__ic" style="color:var(--vermilion)"><svg class="ic"><use href="#ic-kick"/></svg></div>
+              <h3 class="mcard__t">Ближний бой</h3>
+              <p class="mcard__d">Удар сбивает паука с&nbsp;вас и&nbsp;с&nbsp;поваленного напарника.</p>
+            </article>
+            <article class="mcard" data-anim="up" style="--delay:.44s">
+              <div class="mcard__ic" style="color:var(--gold-deep)"><svg class="ic"><use href="#ic-drink"/></svg></div>
+              <h3 class="mcard__t">Опьянение</h3>
+              <p class="mcard__d">Напиток даёт стакающийся эффект: качание камеры и&nbsp;пост-обработка.</p>
+            </article>
+          </div>        </section>
+
+        <section class="slide tag-accent--sky" id="network">
+          <header class="head">
+            <div class="kicker" data-anim="up">Сеть</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Сетевая архитектура</h2>
+          </header>
+          <div class="net">
+            <div class="net__node net__node--server" data-anim="up" style="--delay:.18s">
+              <div class="net__cap">Linux Dedicated Server</div>
+              <div class="net__sub">headless · авторитетный · крутит всю симуляцию</div>
+            </div>
+            <div class="net__bus" data-anim="fade" style="--delay:.34s"><span class="net__tube">FishNet · Tugboat (UDP) · :7778</span></div>
+            <div class="net__clients">
+              <div class="net__node" data-anim="up" style="--delay:.46s"><div class="net__cap">Игрок 1</div><div class="net__sub">клиент</div></div>
+              <div class="net__node" data-anim="up" style="--delay:.56s"><div class="net__cap">Игрок 2</div><div class="net__sub">клиент</div></div>
+            </div>
+          </div>
+          <div class="authrow">
+            <div class="authcard" data-anim="up" style="--delay:.66s"><b>Геймплей → сервер</b><span>Источник, раунд, ИИ, орудие, состояние игрока</span></div>
+            <div class="authcard" data-anim="up" style="--delay:.74s"><b>Движение → владелец</b><span>NetworkTransform; остальные клиенты интерполируют</span></div>
+          </div>        </section>
+
+        <section class="slide tag-accent--water" id="sync">
+          <header class="head">
+            <div class="kicker" data-anim="up">Сеть · реализация</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Как это сделано на&nbsp;FishNet</h2>
+          </header>
+          <div class="rpcflow" data-anim="up" style="--delay:.18s">
+            <span class="rpcflow__b">Клиент</span>
+            <span class="rpcflow__ar">→</span>
+            <span class="rpcflow__b rpcflow__b--srv">Сервер<br>валидирует</span>
+            <span class="rpcflow__ar">→</span>
+            <span class="rpcflow__b">SyncVar / ObserversRpc</span>
+            <span class="rpcflow__ar">→</span>
+            <span class="rpcflow__b">SignalBus → UI<br>у всех клиентов</span>
+          </div>
+          <div class="sync__cols">
+            <div class="usage" data-anim="up" style="--delay:.3s">
+              <div class="usage__row"><span class="usage__lab">SyncVar</span> <span class="usage__val">— состояние Источника, заряд орудия, жизнь игрока, исход раунда.</span></div>
+              <div class="usage__row"><span class="usage__lab">ServerRpc</span> <span class="usage__val">— выстрел, захват и&nbsp;бросок, удар, выпивка.</span></div>
+              <div class="usage__row"><span class="usage__lab">ObserversRpc</span> <span class="usage__val">— гарпун, сборка орудия, эффекты, смена состояния.</span></div>
+              <div class="usage__row"><span class="usage__lab">Broadcast</span> <span class="usage__val">— лобби без NetworkObject: ник, готовность, старт.</span></div>
+              <div class="usage__row"><span class="usage__lab">NetworkTransform</span> <span class="usage__val">— движение владельца, остальные интерполируют.</span></div>
+              <div class="usage__row"><span class="usage__lab">Инъекция</span> <span class="usage__val">— InjectableNetworkBehaviour (Zenject-контейнер сцены).</span></div>
+            </div>
+            <pre class="code" data-anim="scale" style="--delay:.34s"><code><span class="c">// клиент просит → сервер валидирует → рассылает всем</span>
+<span class="k">[ServerRpc]</span>
+<span class="t">void</span> <span class="f">ServerFire</span>(Vector3 dir) { <span class="c">/* проверка + урон */</span> }
+
+<span class="k">[ObserversRpc]</span>
+<span class="t">void</span> <span class="f">RpcLaunchHarpoon</span>(Vector3 from, Vector3 to);
+
+<span class="c">// состояние реплицируется само + событие у каждого</span>
+<span class="k">[SyncVar(</span>OnChange = <span class="s">nameof</span>(OnState)<span class="k">)]</span>
+<span class="t">public</span> SourceState State;
+
+<span class="c">// лобби без NetworkObject — FishNet Broadcast</span>
+broadcast.<span class="f">Broadcast</span>(<span class="t">new</span> LobbyStateBroadcast(…));</code></pre>
+          </div>        </section>
+
+        <section class="slide tag-accent--gold" id="arch">
+          <header class="head">
+            <div class="kicker" data-anim="up">Код</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Архитектура кода</h2>
+          </header>
+          <div class="arch">
+            <div class="arch__layers">
+              <div class="lyr" data-anim="left" style="--delay:.2s"><b>UI</b><span>MVP · View + Presenter</span></div>
+              <div class="lyr" data-anim="left" style="--delay:.28s"><b>Gameplay</b><span>NetworkBehaviour + чистая логика</span></div>
+              <div class="lyr" data-anim="left" style="--delay:.36s"><b>Infrastructure</b><span>Services + Installers</span></div>
+              <div class="lyr" data-anim="left" style="--delay:.44s"><b>Core</b><span>State Machine + States</span></div>
+              <div class="lyr" data-anim="left" style="--delay:.52s"><b>Data</b><span>Configs (ScriptableObject)</span></div>
+            </div>
+            <aside class="arch__side">
+              <div class="patt" data-anim="right" style="--delay:.44s"><b>Zenject</b><span>DI · Project / Scene</span></div>
+              <div class="patt" data-anim="right" style="--delay:.52s"><b>SignalBus</b><span>события · Observer</span></div>
+              <div class="patt" data-anim="right" style="--delay:.6s"><b>UniTask</b><span>async без корутин</span></div>
+              <div class="patt" data-anim="right" style="--delay:.68s"><b>3 asmdef</b><span>Data · Main · Editor</span></div>
+            </aside>
+          </div>        </section>
+
+        <section class="slide tag-accent--leaf" id="audio">
+          <header class="head">
+            <div class="kicker" data-anim="up">Звук и&nbsp;эффекты</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">Звук и&nbsp;эффекты</h2>
+          </header>
+          <div class="split">
+            <div class="split__copy">
+              <ul class="feats">
+                <li data-anim="up" style="--delay:.2s"><b>Каталоги звуков и&nbsp;VFX.</b> Эффекты по&nbsp;идентификаторам, пустой слот — тишина.</li>
+                <li data-anim="up" style="--delay:.32s"><b>Пространственный звук.</b> 3D-аудио с&nbsp;пулом источников.</li>
+                <li data-anim="up" style="--delay:.44s"><b>Пьяная пост-обработка.</b> Хроматическая аберрация, дисторшн, виньетка.</li>
+              </ul>
+            </div>
+            <div class="split__media" data-anim="scale" style="--delay:.3s">
+              <div class="vflow">
+                <div class="vflow__b vflow__b--srv">Серверное событие</div>
+                <div class="vflow__a">↓</div>
+                <div class="vflow__b">ObserversRpc / Broadcast</div>
+                <div class="vflow__a">↓</div>
+                <div class="vflow__b">SignalBus — у каждого клиента</div>
+                <div class="vflow__a">↓</div>
+                <div class="vflow__b">EffectBindings → Sfx / Vfx Service</div>
+              </div>
+              <p class="vflow__cap">Звук и&nbsp;эффекты идут через FishNet: сервер инициирует событие — каждый клиент проигрывает его локально (3D, пул источников).</p>
+            </div>
+          </div>        </section>
+
+        <section class="slide tag-accent--sky" id="stack">
+          <header class="head">
+            <div class="kicker" data-anim="up">Технологии</div>
+            <h2 class="h1" data-anim="up" style="--delay:.08s">На&nbsp;чём построено</h2>
+          </header>
+          <div class="badges">
+            <div class="badge" data-anim="up" style="--delay:.2s"><b>Unity&nbsp;6</b><span>URP</span></div>
+            <div class="badge" data-anim="up" style="--delay:.26s"><b>FishNet</b><span>Tugboat · UDP</span></div>
+            <div class="badge" data-anim="up" style="--delay:.32s"><b>Zenject</b><span>DI-контейнер</span></div>
+            <div class="badge" data-anim="up" style="--delay:.38s"><b>UniTask</b><span>async</span></div>
+            <div class="badge" data-anim="up" style="--delay:.44s"><b>Input System</b><span>новый ввод</span></div>
+            <div class="badge" data-anim="up" style="--delay:.5s"><b>DOTween</b><span>анимации</span></div>
+            <div class="badge" data-anim="up" style="--delay:.56s"><b>C#</b><span>.NET</span></div>
+            <div class="badge" data-anim="up" style="--delay:.62s"><b>FSM · MVP · Signals</b><span>паттерны</span></div>
+          </div>        </section>
+
+        <section class="slide" id="end">
+          <div class="enso" style="width:720px;height:720px;right:-160px;top:80px;"></div>
+          <div class="endwrap">
+            <div class="kicker" data-anim="up" style="--delay:.1s">Хранители неба</div>
+            <h2 class="endthanks" data-anim="ink" style="--delay:.24s">Спасибо</h2>
+            <div class="cover__meta endmeta" data-anim="up" style="--delay:.55s">
+              <span><b>Данилов Михаил</b> · <b>Самсонова Ольга</b></span>
+              <span class="muted">БСБО-09-23 · 2026</span>
+            </div>
+          </div>        </section>
+
+      </div>
+
+      <div class="hud">
+        <div class="hud__brand"><span class="maru"></span> Хранители неба</div>
+        <div class="hud__counter"><b>01</b> <span class="sep">/</span> <span class="tot">12</span></div>
+      </div>
+
+      <div class="dots"></div>
+    </div>
+  </div>
+
+  <script src="js/ambient.js"></script>
+  <script src="js/deck.js"></script>
+</body>
+</html>
